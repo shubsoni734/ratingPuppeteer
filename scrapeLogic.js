@@ -74,17 +74,12 @@ const scrapeLogic = async (req, res) => {
     const ratings = await findRating(ratingId);
 
     // Format the result
-    // const logStatement = `Standard Rating: ${ratings.std}\n` +
-    //   `Rapid Rating: ${ratings.rapid}\n` +
-    //   `Blitz Rating: ${ratings.blitz}`;
-    const jsonResponse = {
-      standardRating: ratings.std,
-      rapidRating: ratings.rapid,
-      blitzRating: ratings.blitz
-    };
+    const logStatement = `Standard Rating: ${ratings.std}\n` +
+                         `Rapid Rating: ${ratings.rapid}\n` +
+                         `Blitz Rating: ${ratings.blitz}`;
+
     console.log(logStatement);
-    // res.send(logStatement);
-    res.json(jsonResponse);
+    res.send(logStatement);
   } catch (e) {
     console.error(e);
     res.send(`Something went wrong while running Puppeteer: ${e}`);
