@@ -79,7 +79,8 @@ const scrapeLogic = async (req, res) => {
                          `Blitz Rating: ${ratings.blitz}`;
 
     console.log(logStatement);
-    res.send(logStatement);
+    // res.send(logStatement);
+    res.json(jsonResponse);
   } catch (e) {
     console.error(e);
     res.send(`Something went wrong while running Puppeteer: ${e}`);
