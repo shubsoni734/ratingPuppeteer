@@ -1,5 +1,6 @@
 const express = require("express");
 const { scrapeLogic } = require("./scrapeLogic");
+const { axiosScrape } = require("./axiosScrape");
 const app = express();
 
 const PORT = process.env.PORT || 4000;
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 4000;
 // });
 
 app.get('/ratings/:id', scrapeLogic);
+app.get('/fied/:url', axiosScrape);
 
 app.get("/", (req, res) => {
   res.send("Render Puppeteer server is up and running!");
