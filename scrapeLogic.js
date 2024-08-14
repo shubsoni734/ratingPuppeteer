@@ -74,10 +74,14 @@ const scrapeLogic = async (req, res) => {
     const ratings = await findRating(ratingId);
 
     // Format the result
-    const logStatement = `Standard Rating: ${ratings.std}\n` +
-                         `Rapid Rating: ${ratings.rapid}\n` +
-                         `Blitz Rating: ${ratings.blitz}`;
-
+    // const logStatement = `Standard Rating: ${ratings.std}\n` +
+    //   `Rapid Rating: ${ratings.rapid}\n` +
+    //   `Blitz Rating: ${ratings.blitz}`;
+    const jsonResponse = {
+      standardRating: ratings.std,
+      rapidRating: ratings.rapid,
+      blitzRating: ratings.blitz
+    };
     console.log(logStatement);
     // res.send(logStatement);
     res.json(jsonResponse);
