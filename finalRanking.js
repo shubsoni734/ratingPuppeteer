@@ -30,7 +30,7 @@ const finalRatingList = async (tournamentid, round) => {
                 pts: pts
             });
         });
-        console.log(data);
+        // console.log(data);
         return data;
         // return { status: 200, message: "Rating Scraping Successfully", data: data }
     } catch (e) {
