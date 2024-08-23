@@ -30,12 +30,16 @@ const finalRatingList = async (tournamentid, round) => {
                 pts: pts
             });
         });
+        if (data.length > 0) {
+            return data;
+        } else {
+            return [];
+        }
         // console.log(data);
-        return data;
         // return { status: 200, message: "Rating Scraping Successfully", data: data }
     } catch (e) {
         console.error(e);
-        return { status: 500, message: "Error in scraping data from web" };
+        return { status: 500, error: e, message: "Error in scraping data from web" };
     }
 };
 
